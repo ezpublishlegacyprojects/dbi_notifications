@@ -1,0 +1,39 @@
+============================
+DBI notifications extension
+============================
+
+DB Informatics
+www.dbinformatics.com.au
+info@dbinformatics.com.au
+
+----------------------------
+The DBI notifications extension allows an ezselect dropdown to be placed in
+the user class.  A user can then choose what notification set they wish to 
+subscribe to upon registration.
+----------------------------
+
+License
+-------
+
+Certain parts of the SCK Add Subtree Notification rule extension were used
+as a base of this extension.
+
+Usage
+-----
+
+1. Put an attribute of type ezselection in your user content class.
+
+2. Create a workflow containing an event of type "DBI add notification rule"
+   and select the attribute you just added to the user content class.
+
+3. Create another workflow containing a multiplexer event and configure this
+   event to only run your new workflow when a user is created.
+
+3. Put the multiplexer workflow we just created at the publish/after trigger.
+
+4. For the name of each option we added to the ezselection attribute in the
+   first step, you can create an INI group in dbi_notifications.ini. Under
+   these blocks, you can place a setting array named SubtreeNotifications.
+   With this setting you specify the ID's of the nodes you want to add subtree
+   notification rules for when the selection option this INI group represents
+   was chosen in the user content object.
